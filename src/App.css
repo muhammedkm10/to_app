@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+/* Hide the default checkbox */
+.customCheckbox input[type="checkbox"] {
+    display: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Define custom checkbox appearance */
+.customCheckbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px; /* Adjust as needed */
+    cursor: pointer;
+    font-size: 16px; /* Adjust as needed */
+    color: #333; /* Adjust as needed */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Custom checkbox design */
+.customCheckbox label:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 2px; /* Adjust as needed */
+    width: 18px;
+    height: 18px;
+    border: 2px solid #333; /* Adjust as needed */
+    background-color: #fff; /* Adjust as needed */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Custom checkbox checked state */
+.customCheckbox input[type="checkbox"]:checked + label:before {
+    background-color: #333; /* Adjust as needed */
 }
 
-.App-link {
-  color: #61dafb;
+/* Custom checkbox checkmark */
+.customCheckbox label:after {
+    content: "\2713"; /* Unicode character for checkmark */
+    position: absolute;
+    left: 4px; /* Adjust as needed */
+    top: -1px; /* Adjust as needed */
+    font-size: 14px; /* Adjust as needed */
+    color: #fff; /* Adjust as needed */
+    display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Show checkmark when checkbox is checked */
+.customCheckbox input[type="checkbox"]:checked + label:after {
+    display: block;
 }
+
+
